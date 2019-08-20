@@ -15,10 +15,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import com.pizzaria.pedidos.form.PizzaForm;
 import com.pizzaria.pedidos.model.Pizza;
 import com.pizzaria.pedidos.repository.PizzaRepository;
 
-@RestController("/pizza")
+@RestController
+@RequestMapping("/pizza")
 public class PizzaController {
 	
 	@Autowired
@@ -35,7 +37,8 @@ public class PizzaController {
 
 	@PostMapping
 	@Transactional
-	public ResponseEntity<Pizza> cadastraPizza(@RequestBody Pizza pizza, UriComponentsBuilder builder){
+	public ResponseEntity<Pizza> cadastraPizza(@RequestBody PizzaForm pizzaForm, UriComponentsBuilder builder){
+		Pizza pizza = pizzaForm.converter();
 		pizzaRepository.save(pizza);
 		URI uri = builder.path("/pedidos/{id}").buildAndExpand(pizza.getId()).toUri();
 		return ResponseEntity.created(uri).body(pizza);
