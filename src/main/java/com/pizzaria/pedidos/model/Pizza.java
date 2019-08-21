@@ -7,7 +7,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Pizza {
 	
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,15 +21,21 @@ public class Pizza {
 	private TamanhoPizza tamanho;
 	private int tempoDePreparo;
 	private double valorDaPizza;
+	private boolean extraBacon;
+	private boolean semCebola;
+	private boolean bordaRecheada = false;
+	private double extraBaconValor;
+	private double bordaRecheadaValor;
+
 	
-	
-	
-	
-	public Pizza(SaborPizza sabor, TamanhoPizza tamanho, int tempoDePreparo, double valorDaPizza) {
+	public Pizza(SaborPizza sabor, TamanhoPizza tamanho, int tempoDePreparo, double valorDaPizza, double extraBaconValor, double bordaRecheadaValor) {
 		this.sabor = sabor;
 		this.tamanho = tamanho;
 		this.tempoDePreparo = tempoDePreparo;
 		this.valorDaPizza = valorDaPizza;
+		this.extraBaconValor = extraBaconValor;
+		this.bordaRecheadaValor = bordaRecheadaValor;
+		
 	}
 
 	public Pizza() {}
@@ -77,6 +86,46 @@ public class Pizza {
 
 	public void setTempoDePreparo(int tempoDePreparo) {
 		this.tempoDePreparo = tempoDePreparo;
+	}
+
+	public boolean getExtraBacon() {
+		return extraBacon;
+	}
+
+	public void setExtraBacon(boolean extraBacon) {
+		this.extraBacon = extraBacon;
+	}
+
+	public boolean getSemCebola() {
+		return semCebola;
+	}
+
+	public void setSemCebola(boolean semCebola) {
+		this.semCebola = semCebola;
+	}
+
+	public boolean getBordaRecheada() {
+		return bordaRecheada;
+	}
+
+	public void setBordaRecheada(boolean bordaRecheada) {
+		this.bordaRecheada = bordaRecheada;
+	}
+
+	public double getExtraBaconValor() {
+		return extraBaconValor;
+	}
+
+	public void setExtraBaconValor(double extraBaconValor) {
+		this.extraBaconValor = extraBaconValor;
+	}
+
+	public double getBordaRecheadaValor() {
+		return bordaRecheadaValor;
+	}
+
+	public void setBordaRecheadaValor(double bordaRecheadaValor) {
+		this.bordaRecheadaValor = bordaRecheadaValor;
 	}
 	
 }

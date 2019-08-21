@@ -32,6 +32,8 @@ public class PizzaForm {
 	public Pizza converter() {
 		int tempoDePreparo = 0;
 		double valorDaPizza = 0;
+		double valorExtraBacon = 0;
+		double valorBordaRecheada = 0;
 		
 		if(this.tamanho == TamanhoPizza.PEQUENA) {
 			tempoDePreparo = 15;
@@ -47,7 +49,7 @@ public class PizzaForm {
 			tempoDePreparo += 5;
 		}
 		
-		return new Pizza(this.sabor, this.tamanho, tempoDePreparo, valorDaPizza);
+		return new Pizza(this.sabor, this.tamanho, tempoDePreparo, valorDaPizza, valorExtraBacon, valorBordaRecheada);
 	}
 	
 	
