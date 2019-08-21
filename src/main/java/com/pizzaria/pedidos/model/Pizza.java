@@ -23,7 +23,7 @@ public class Pizza {
 	private double valorDaPizza;
 	private boolean extraBacon;
 	private boolean semCebola;
-	private boolean bordaRecheada = false;
+	private boolean bordaRecheada;
 	private double extraBaconValor;
 	private double bordaRecheadaValor;
 
