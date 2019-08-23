@@ -1,7 +1,0 @@
-para incluir novos pedidos, é preciso ir em /pizza, usando o post, com um json com duas strings - tamanho ("PEQUENA", "MEDIA", ou "GRANDE")
-e sabor ("PORTUGUESA", "MARGUERITA", ou "CALABRESA").
-
-Para acessar o pedido, utilize o método get com pizza/{id}
-
-Para incluir adicionais, passe valores 'true' com o método put, em um json ("extraBacon", "semCebola", e "bordaRecheada"),
-também em pizza/{id}.
