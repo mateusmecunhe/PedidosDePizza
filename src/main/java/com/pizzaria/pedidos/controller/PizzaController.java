@@ -50,6 +50,8 @@ public class PizzaController {
 	public ResponseEntity<Pizza> adicionaisPizza(@RequestBody AdicionaisForm adicionaisForm, @PathVariable Long id){
 		System.out.println("pizza encontrada ->" + id);
 		Pizza pizzaConvertida = adicionaisForm.atualizar(pizzaRepository, id);
+		pizzaRepository.save(pizzaConvertida);
+		
 		System.out.println("pizza convertida");
 		return ResponseEntity.ok(pizzaConvertida);
 
