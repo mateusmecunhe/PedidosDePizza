@@ -42,7 +42,7 @@ public class PizzaController {
 	public ResponseEntity<Pizza> cadastraPizza(@RequestBody PizzaForm pizzaForm, UriComponentsBuilder builder) {
 		Pizza pizza = pizzaForm.converter();
 		pizzaRepository.save(pizza);
-		URI uri = builder.path("/pedidos/{id}").buildAndExpand(pizza.getId()).toUri();
+		URI uri = builder.path("/{id}").buildAndExpand(pizza.getId()).toUri();
 		return ResponseEntity.created(uri).body(pizza);
 	}
 
